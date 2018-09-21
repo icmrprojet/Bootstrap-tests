@@ -1,0 +1,873 @@
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- derniere version du moteur de rendu de IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Vérification mobile sans zoom -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body { 
+        background-color:#DDD;
+        padding-top: 10px;
+      }
+      [class*="col-"] { margin-bottom: 20px; }
+      img { width: 100%; }
+      .well {
+        background-color:#CCC;
+        padding: 20px;
+      }
+      a:active, a:focus { outline:none; }
+      .inline-form input {
+        display: inline-block;
+        width: 100px;
+      }
+        .tRed{
+        color:red;
+        font-weight: bold;
+        font-size:9px;
+        line-height: 9px;
+        padding: 0;
+        margin: 0;
+        }
+
+        .fade {
+        opacity: 0;
+        -webkit-transition: opacity .5000s linear!important;
+        -o-transition: opacity .5000s linear;
+        transition: opacity .5000s linear;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-inverse" role="navigation">   
+        <div class="navbar-header">   
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">JQUERY</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Accueil</a> </li>
+            <li class="dropdown"> 
+              <a data-toggle="dropdown" href="#">Evénements<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">avec propriétés</a></li>
+                <li><a href="#">avec javascript</a></li>
+                <li><a href="#">Caroussel</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Autres</a></li>
+              </ul>
+            </li> 
+            <li><a class="navbar-link" href="http://www.creatrafic.com/OC/bootstrap/index.html" target="_self">BOOTSTRAP</a></li>
+            <li> <a href="#">Navigation</a></li>
+          </ul>
+        <div class="btn-group navbar-btn"> 
+             <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dompteurs</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Zoos</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-screenshot"></span> Chasseurs</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Autres témoignages</a></li>
+            </ul>
+        </div> 
+        <div class="btn-group navbar-btn"> 
+            <button class="btn btn-info">Droite</button>
+            <button class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Dompteurs</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-picture"></span> Zoos</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-screenshot"></span> Chasseurs</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Autres témoignages</a></li>
+            </ul>
+        </div>
+       <div class="btn-group navbar-btn"> 
+            <button class="btn btn-warning">Gauche</button>
+            <button class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu  dropdown-menu-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Lire</a></li>
+                    <li class="disabled"><a href="#"><span class="glyphicon glyphicon-print"></span> Imprimer <i>disabled</i></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Ecrire</a></li>
+                <li class="divider"></li>
+                <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Autres témoignages</a></li>
+            </ul>
+        </div> 
+ 
+            
+          <form class="navbar-form navbar-right inline-form" role="form">
+            <div class="form-group">
+              <input type="search" class="input-sm form-control" placeholder="Recherche">
+              <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span> Chercher</button>
+            </div>
+          </form>
+
+ 
+            
+        </div>
+      </nav>
+        
+    <header class="row">
+        <h1 class="col-lg-3">JQuery</h1>
+        <div class="col-lg-3">
+            <button class="btn btn-danger" id="btnDrop">Les évènements <b>pour <br/>le composant dropdown</b></button>
+               <div class="modal" id="infosDrop">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <h4 class="modal-title">Les évènements Dropdown</h4>
+                      </div>
+                      <div class="modal-body">
+                        <table class="table table-striped table-condensed">
+                          <thead>
+                            <tr>
+                              <th>Evénement</th>
+                              <th>Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><strong>show.bs.dropdown</strong></td>
+                              <td>Se déclenche dès l'appel à la méthode <strong>show</strong></td>
+                            </tr>
+                            <tr>
+                              <td><strong>shown.bs.dropdown</strong></td>
+                              <td>Se déclenche lorsque le menu devient visible</td>
+                            </tr>
+                            <tr>
+                              <td><strong>hide.bs.dropdown</strong></td>
+                              <td>Se déclenche dès l'appel à la méthode <strong>hide</strong></td>
+                            </tr>
+                            <tr>
+                              <td><strong>hidden.bs.dropdown</strong></td>
+                              <td>Se déclenche lorsque le menu est masquée</td>
+                            </tr>
+                            <tr>
+                              <td colspan="2" class="warning">
+                                  <p>$('#mon_dropdown').on('shown.bs.dropdown', function () {<br />
+                                  // Je fais un truc quand le menu est devenu visible<br />
+                                  })</p>
+                                </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-info" data-dismiss="modal">Fermer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            
+                <div id="html"><br/> 
+                    <button data-toggle="modal" data-backdrop="false" href="#formulaire" class="btn btn-primary">Formulaire en modal</button>
+                </div>
+                <div class="modal fade" id="formulaire">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">x</button>
+                          <h4 class="modal-title">Vos infos :</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form action="test.php">
+                            <div class="form-group">
+                              <label for="nom">Nom</label>
+                              <input type="text" class="form-control" name ="nom" id="nom" placeholder="Votre nom">
+                            </div>
+                            <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="email" class="form-control" name="email" id="email" placeholder="Votre Email">
+                            </div>
+                            <button type="submit" class="btn btn-default">Envoyer</button>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button class="btn btn-info" data-dismiss="modal">Annuler</button>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3" id="eventCta">
+                <h3> Les onglets nav-pills</h3>
+                <ul class="nav nav-pills">
+                    <li class="active"><a href="#accueil">Accueil</a></li>
+                    <li><a href="#livres">Livres</a></li>
+                    <li><a href="#temoignages">Témoignages</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="accueil">Texte d'accueil</div>
+                    <div class="tab-pane" id="livres">Tous les livres</div>
+                    <div class="tab-pane" id="temoignages">Tous les témoignages</div>
+                </div>
+                <hr>
+                <h5>event.target / event.relatedTarget</h5>
+                <p id='actif'><strong>Onglet actif </strong>: <span></span></p>
+                <p id='precedent'><strong>Onglet précédent </strong>: <span></span></p>
+            </div>
+            <div class="col-lg-3">
+                <h3> Les onglets nav-tabs</h3>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#intro" data-toggle="tab">Intro</a></li>
+                    <li><a href="#codes" data-toggle="tab">Codes</a></li>
+                    <li><a href="#sources" data-toggle="tab">Sources</a></li>
+                </ul>
+                <div class="tab-content">
+                   <div class="tab-pane fade active in" id="intro">Introduction</div>
+                   <div class="tab-pane fade" id="codes">Tous les codes</div>
+                   <div class="tab-pane fade" id="sources">Toutes les sources</div>
+                </div>
+            </div>
+      </header>
+
+    <h3>Activation avec propriétés</h3>
+      <section class="row">
+        <div class="col-lg-4">
+            <button data-toggle="modal"  data-backdrop="true"  href="remote.html" data-target="#infos" class="btn btn-primary">
+                data-backdrop="true"
+            </button>
+            <div class="modal fade" id="infos">
+                <div class="modal-dialog">  
+                  <div class="modal-content"></div>  
+                </div> 
+            </div>
+            <button data-toggle="modal"  data-backdrop="false"  href="remote.html" data-target="#infos" class="btn btn-primary">
+                data-backdrop="false"
+            </button>
+            <div class="modal fade" id="infos">
+                <div class="modal-dialog">  
+                  <div class="modal-content"></div>  
+                </div> 
+            </div>
+            <div class="btn-group"><br/>
+                <button id="page1" type="button" class="btn btn-primary">Page 1</button>
+                <button id="page2" type="button" class="btn btn-primary">Page 2</button>
+                <button id="page3" type="button" class="btn btn-primary">Page 3</button>
+            </div>
+            <div class="modal fade" id="infos">
+                <div class="modal-dialog">  
+                    <div class="modal-content"></div>  
+                </div> 
+            </div><br/><br/>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#f1">Grande fenêtre</button>
+              <div class="modal fade" id="f1">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      Je suis une grande fenêtre !
+                      <button type="button" class="close" data-dismiss="modal">x</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#f2">Petite fenêtre</button>
+              <div class="modal fade" id="f2">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      Je suis une petite fenêtre !
+                      <button type="button" class="close" data-dismiss="modal">x</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="btn-group"> 
+                <h1 data-toggle="dropdown"><span class="label label-default" id="lover">Passez sur moi !</span></h1>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Dompteurs</a></li>
+                    <li><a href="#">Zoos</a></li>
+                    <li><a href="#">Chasseurs</a></li>
+                </ul>
+            </div>
+            <h3>Activation avec javascript</h3>
+            <p>La propriété data-toggle="modal" placée dans l'élément déclencheur active automatiquement le plugin. </p>
+            <p><button class="btn btn-danger" id="btnJS">Les évènements <b>pour le composant modal</b></button></p>
+            <div class="modal" id="infosJS">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h4 class="modal-title">Les évènements Modal</h4>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-striped table-condensed">
+                      <thead>
+                        <tr>
+                          <th>Evénement</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>show.bs.modal</strong></td>
+                          <td>Se déclenche dès l'appel à la méthode <strong>show</strong></td>
+                        </tr>
+                        <tr>
+                          <td><strong>shown.bs.modal</strong></td>
+                          <td>Se déclenche lorsque la fenêtre devient visible</td>
+                        </tr>
+                        <tr>
+                          <td><strong>hide.bs.modal</strong></td>
+                          <td>Se déclenche dès l'appel à la méthode <strong>hide</strong></td>
+                        </tr>
+                        <tr>
+                          <td><strong>hidden.bs.modal</strong></td>
+                          <td>Se déclenche lorsque la fenêtre est masquée</td>
+                        </tr>
+                        <tr>
+                          <td><strong>loaded.bs.modal</strong></td>
+                          <td>Se déclenche lorsque la fenêtre a chargé le contenu récupéré avec la propriété <strong style="border:1px solid grey;padding:0 5px;"> remote </strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-info" data-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>  
+        <div class="media col-lg-8" style="background-color:#cecece;">
+          <div class="pull-right">
+            <!--iframe width="560" height="315" src="https://www.youtube.com/embed/_Qlld38EAjk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+            <iframe id="ytplayer" type="text/html" width="480" height="270" src="https://www.youtube.com/embed/_Qlld38EAjk" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="media-body">
+            <div class="btn-group pull-right" data-toggle="buttons">
+              <label class="btn btn-primary active">
+                <input type="radio">Vidéo 1
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio">Vidéo 2
+              </label>
+              <label class="btn btn-primary">
+                <input type="radio">Vidéo 3
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+
+
+      <div class="row">
+        <section class="col-sm-4">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">panel-title</h3>
+            </div>
+            <div class="list-group">
+              <a href="#infos" class="list-group-item" data-toggle="modal">
+                Tigre de Sibérie
+                <span class="badge">120</span>
+              </a>
+              <div class="modal fade" id="infos" role="dialog" aria-labelledby="modalTitre" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                      <h4 id="modalTitre" class="modal-title">Plus d'informations sur le tigre de Sibérie</h4>
+                    </div>
+                    <div class="modal-body">
+                      <blockquote>
+                        Les tigres de Sibérie pèsent de 180 à 350 kg pour les mâles et de 100 à 200 kg pour les femelles. Le plus gros tigre de Sibérie, tué en 1950, atteignait les 384 kg. Le Tigre de Sibérie est le troisième plus gros prédateur terrestre derrière l'ours kodiak et l'ours polaire. La longueur totale du corps avec la queue est comprise entre 2,7 et 3,8 m pour les mâles et entre 2,4 et 2,75 m pour les femelles. La longueur du crâne est de 341 à 383 mm pour les mâles et 279 à 318 mm pour les femelles.<hr>
+                        <small class="pull-right">Wikipedia</small>
+                      </blockquote>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="list-group-item">
+                Tigre de Chine méridionale
+                <span class="badge">540</span>
+              </a>
+              <a href="#" class="list-group-item">
+                Tigre de Bali
+                <span class="badge">230</span>
+              </a>
+              <a href="#" class="list-group-item">
+                Tigre de d'Indochine
+                <span class="badge">240</span>
+              </a>
+              <a href="#" class="list-group-item">
+                Tigre de Malaisie
+                <span class="badge">1200</span>
+              </a>
+            </div>
+          </div>
+          <p><button class="btn btn-danger" id="btnC">Les évènements <b>pour le composant carousel</b></button></p>
+            <div class="modal" id="infosC">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h4 class="modal-title">Les évènements carousel</h4>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-striped table-condensed">                
+                      <thead>
+                        <tr>
+                          <th>Evénement</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>slide.bs.carousel</strong></td>
+                          <td>Se déclenche dès l'appel à la méthode <strong>slide</strong></td>
+                        </tr>
+                        <tr>
+                          <td><strong>slid.bs.modal</strong></td>
+                          <td>Se déclenche lorsque la transaltion est terminée</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-info" data-dismiss="modal">Fermer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section class="col-sm-4">
+          <div id="carousel1" class="carousel slide"><!-- data-ride="carousel" desctivée pour le JS-->
+            <ol class="carousel-indicators">
+              <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel1" data-slide-to="1"></li>
+              <li data-target="#carousel1" data-slide-to="2"></li>
+              <li data-target="#carousel1" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner thumbnail">
+              <div class="item active"> <img alt="Tigre" src="images/photo-tigre.jpg"><h1 class="carousel-caption">Photo 1</h1></div>
+              <div class="item"> <img alt="Tigre" src="images/photo-tigre1.jpg"><h1 class="carousel-caption">Photo 2</h1></div>
+              <div class="item"> <img alt="Tigre" src="images/photo-tigre2.jpg"><h1 class="carousel-caption">Photo 3</h1></div>
+              <div class="item"> <img alt="Tigre" src="images/photo-tigre3.jpg"><h1 class="carousel-caption">Photo 4</h1></div>
+            </div>
+            <a class="left carousel-control" href="#carousel1" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#carousel1" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+          </div>
+
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-primary active" id="cycle">
+                    <input type="radio" name="options">Cycle
+                </label>
+                <label class="btn btn-primary" id="pause1">
+                    <input type="radio" name="options">Pause
+                </label>           
+            </div>
+        </section>
+        <section class="col-sm-4">
+          <div id="carousel2" class="carousel slide">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel2" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel2" data-slide-to="1"></li>
+                  <li data-target="#carousel2" data-slide-to="2"></li>
+                  <li data-target="#carousel2" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="item active"> <img alt="Tigre" src="images/photo-tigre.jpg"></div>
+                  <div class="item"> <img alt="Tigre" src="images/photo-tigre1.jpg"></div>
+                  <div class="item"> <img alt="Tigre" src="images/photo-tigre2.jpg"></div>
+                  <div class="item"> <img alt="Tigre" src="images/photo-tigre3.jpg"></div>
+                </div>
+            </div><br/>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-success" id="first"><input type="radio" name="options2"><span class="glyphicon glyphicon-fast-backward"></span></label>
+                <label class="btn btn-success" id="previous"><input type="radio" name="options2"><span class="glyphicon glyphicon-step-backward"></span></label>
+                <label class="btn btn-success" id="pause2"><input type="radio" name="options2"><span class="glyphicon glyphicon-pause"></span></label>
+                <label class="btn btn-success active" id="play"><input type="radio" name="options2"><span class="glyphicon glyphicon-play"></span></label>
+                <label class="btn btn-success" id="next"><input type="radio" name="options2"><span class="glyphicon glyphicon-step-forward"></span></label>
+                <label class="btn btn-success" id="last"><input type="radio" name="options2"><span class="glyphicon glyphicon-fast-forward"></span></label>
+            </div>
+            <p><span class="label label-info" id="compteur"></span></p>
+        </section>
+      </div>
+        <h3>Les deux plugins Info-bulles et Popover </h3>
+        <p>Ils partagent une bibliothèque et ont un fonctionnement analogue.</p>
+        <hr>
+        <div class="row">
+            <section class="col-lg-6" id="tip">
+                <h4>Plugin Info-bulles</h4>
+                
+                <p>On utilise des balises avec l'attribut <a data-toggle="tooltip" href="#tip" title="Info bulle au dessus par defaut" id="infoBul">data-toggle</a> égal à tooltip. Le contenu de l'info-bulle se place dans l'attribut title. Il peut apparaitre <a data-toggle="tooltip" href="#tip" title="Info bulle en dessous" id="infoBulB">en dessous</a> ou <a data-toggle="tooltip" href="#tip" title="Info bulle à gauche" id="infoBulG">à gauche</a> selon le JQuery associé.
+                <p>On peut aussi utiliser l'attribut <a data-toggle="tooltip" href="#tip" data-placement="bottom" title='utilisation de "data-placement"' id="infoBulData">data-placement</a>.</p>
+                <p>On peut aussi modifier son comportement avec trigger, les possibilités sont <a data-toggle="tooltip" href="#tip" title="au click" id="clic">click</a>, <a data-toggle="tooltip" href="#tip" title="au click hover" id="hov">hover</a>, <a data-toggle="tooltip" href="#tip" title="au focus" id="foc">focus</a> et <a data-toggle="tooltip" href="#tip" title="au manuel" id="man">manual</a>.</p>
+                <p>Délai de déclenchement de l'<a data-toggle="tooltip" href="#tip" title="delay à 400" id="del">info-bulle</a><br/>
+                Délai ouverture et fermeture <a data-toggle="tooltip" href="#tip" title="show à 200ms, hide à 2000ms" id="delM"> différents</a></p>
+            </section>
+            <section class="col-lg-6" id="popov">
+                <h4>Plugin Popover </h4>
+                <p>Un popover est une grosse <a href="#popov" id="pop1" class="btn btn-info" data-toggle="popover" data-content="Recliquer sur le bouton pour le refermer" title="Test du Popover">info-bulle</a>(comportement par défaut). </p>
+                <p>Un popover qui se ferme en cliquant à l'extérieur : ajouter un <a href="#popov" id="pop2" data-toggle="popover" data-trigger="focus" data-content="pour fermer je clique en dehors"  title="Test du Popover">data-trigger</a> focus</p>
+                <p>On peut aussi modifier son comportement avec trigger, les possibilités sont <a data-toggle="popover" href="#popov" data-content="Ouverture au click, recliquer sur le bouton pour fermer" title="Test du Popover" id="clic2">click</a>, <a data-toggle="popover" href="#popov" data-content="Ouverture au survol" title="Test du Popover" id="hov2">hover</a>, <a data-toggle="popover" href="#popov" data-content="Ouverture sur focus" title="Test du Popover" id="foc2">focus</a> et <a data-toggle="popover" href="#popov" title="Test du Popover" id="man2">manual</a>.</p>
+                <p>Placement à gauche du <a data-toggle="popover" href="#popov" data-content="Ouverture à gauche" title="Test du Popover" id="pop3">Popover</a></p>
+                <p>Délai ouverture et fermeture au click<a data-toggle="popover" href="#popov" data-content="show à 200ms, hide à 2000ms" title="Test du Popover" id="pop4"> différents</a></p>
+                <p>Déclenchement au <a data-toggle="popover" href="#popov" data-content="Déclenché par un survol et en bas" title="Test du Popover" id="pop5">survol</a></p>
+                <div class="well">
+                    <img id="img" style="width: 50px;" data-toggle="popover" data-content="Message personnel ... " title="WARNING !" src="images/visage.png">
+                    <a href="#popov" id="pop6" class="btn btn-info pull-right">Cliquez ici</a>               
+                </div>
+                <p><a href="#popov" id="pop7" class="btn btn-info" data-toggle="popover" data-html="true" data-content="<em>Ce texte est en italic et en<b style='color:red'> couleur</b></em>" title="<h3>Test du popover</h3>">Avoir du HTML dans le popover</a></p>
+            </section>
+        </div>
+        <h3>Effet accordéon </h3>
+        <p>Le plugin accordéon (Collapse) est bien adapté au composant panel</p>
+        <hr>
+        <div class="row">
+            <section class="col-lg-4">
+                <div class="panel panel-default col-lg-120">
+                    <h4>panel-collapse collapse</h4><i class="tRed">div panel-heading</i>
+                    <div class="panel-heading"><i class="tRed">a data-toggle collapse<br/></i>
+                        <a href="#item1" data-toggle="collapse"> Accordéon </a> 
+                    </div>
+                    <div id="item1" class="panel-collapse collapse in"><i class="tRed">div panel-collapse collapse in<br/></i><i class="tRed pull-right">div panel-body</i>
+                        <div class="panel-body"> Ce plugin permet de créer des effets "accordéon" totalement paramétrables</div>
+                    </div>
+                    <div class="panel-heading"> 
+                        <a href="#item2" data-toggle="collapse"> Fenêtre modale </a> 
+                    </div>
+                    <div id="item2" class="panel-collapse collapse">
+                        <div class="panel-body"> Ce plugin permet de créer des fenêtres modales élégantes avec une grande simplicité. </div>
+                    </div>
+                    <div class="panel-heading"> 
+                        <a href="#item3" data-toggle="collapse"> Carousel </a> 
+                    </div>
+                    <div id="item3" class="panel-collapse collapse">
+                        <div class="panel-body"> Ce plugin permet de faire défiler des images ou des vidéo, ou tout autre élément média avec une mise en forme esthétique </div>
+                    </div>
+                    <br>
+                </div>
+            </section>
+            <section class="col-lg-4">
+                <i class="tRed">div panel-group</i>
+                <div class="panel-group col-lg-12">
+                <h3>Tous ouverts</h3><i class="tRed">div panel panel-default</i>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+                            <h3 class="panel-title">
+                            <a href="#item4" data-toggle="collapse"> Accordéon </a> 
+                            </h3>
+                        </div>
+                        <div id="item4" class="panel-collapse collapse in">
+                            <div class="panel-body"> Ce plugin permet de créer des effets "accordéon" totalement paramétrables</div>
+                        </div>
+                    </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"> 
+                        <h3 class="panel-title">
+                        <a href="#item5" data-toggle="collapse"> Fenêtre modale </a> 
+                        </h3>
+                    </div>
+                    <div id="item5" class="panel-collapse collapse">
+                        <div class="panel-body"> Ce plugin permet de créer des fenêtres modales élégantes avec une grande simplicité. </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"> 
+                        <h3 class="panel-title">
+                        <a href="#item6" data-toggle="collapse"> Carousel </a> 
+                        </h3>
+                    </div>
+                    <div id="item6" class="panel-collapse collapse">
+                        <div class="panel-body"> Ce plugin permet de faire défiler des images ou des vidéo, ou tout autre élément média avec une mise en forme esthétique </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <section class="col-lg-4">
+                <i class="tRed">div panel-group id= mon accordéon</i>
+                <div id="monaccordeon" class="panel-group col-lg-12">
+                <h3>Un seul ouvert</h3><i class="tRed">div panel panel-default</i>
+                    <div class="panel panel-default">
+                        <div class="panel-heading"> 
+                            <h3 class="panel-title"><i class="tRed">a data-parent="#monaccordeon"<br/></i>
+                            <a href="#item7" data-toggle="collapse" data-parent="#monaccordeon"> Accordéon </a> 
+                            </h3>
+                        </div>
+                        <div id="item7" class="panel-collapse collapse in">
+                            <div class="panel-body"> Ce plugin permet de créer des effets "accordéon" totalement paramétrables</div>
+                        </div>
+                    </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"> 
+                        <h3 class="panel-title">
+                        <a href="#item8" data-toggle="collapse" data-parent="#monaccordeon"> Fenêtre modale </a> 
+                        </h3>
+                    </div>
+                    <div id="item8" class="panel-collapse collapse">
+                        <div class="panel-body"> Ce plugin permet de créer des fenêtres modales élégantes avec une grande simplicité. </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading"> 
+                        <h3 class="panel-title">
+                        <a href="#item9" data-toggle="collapse" data-parent="#monaccordeon"> Carousel </a> 
+                        </h3>
+                    </div>
+                    <div id="item9" class="panel-collapse collapse">
+                        <div class="panel-body"> Ce plugin permet de faire défiler des images ou des vidéo, ou tout autre élément média avec une mise en forme esthétique </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </div>
+        <h3>Effet accordéon sur liste groupée</h3>
+        <p>Le plugin accordéon peut être appliquée sur une liste</p>
+        <hr>
+        <div class="row" >
+            <section class="col-lg-4">      
+                <div class="col-sm-3 col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                              <span id="icone" class="glyphicon glyphicon-folder-close"></span> <a data-toggle="collapse" href="#menu">Contenu</a>
+                            </h4>
+                        </div>
+                        <ul id="menu" class="list-group collapse in">
+                        <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span> 
+                        <a href="#"> Articles</a></li>
+                        <li class="list-group-item"><span class="glyphicon glyphicon-tag text-primary"></span> 
+                        <a href="#"> Nouvelles</a></li>
+                        <li class="list-group-item"><span class="glyphicon glyphicon-file text-primary"></span> 
+                        <a href="#">   Lettre d'information</a></li>
+                        <li class="list-group-item"><span class="glyphicon glyphicon-comment text-success"></span> 
+                        <a class="text-success" href="#">Commentaires</a><span class="badge">28</span></li>
+                        </ul>
+                    </div>
+                </div>  
+            </section>
+            <section class="col-lg-8">  
+                <div style="height:150px;">
+                    <div class="btn-group btn-group-justified" data-toggle="buttons">
+                        <label class="btn btn-primary active" id="show">
+                            <input type="radio" name="options">Show
+                        </label>
+                        <label class="btn btn-primary" id="hide">
+                            <input type="radio" name="options">Hide
+                        </label>
+                        <label class="btn btn-primary" id="toggle">
+                            <input type="radio" name="options">Toggle
+                        </label>
+                    </div>  
+                    <div class="panel panel-info" id="pan01">
+                        <div class="panel-heading"> 
+                            <h3 class="panel-title"> Je suis le titre de l'accordéon</h3>
+                        </div>
+                    <div class="panel-body"> Je suis le contenu de l'accordéon</div>
+                    </div>
+                </div>                
+
+                <p><button class="btn btn-danger" id="btnAcc">Les évènements <b>pour le composant collapse</b></button></p>
+                <div class="modal" id="infosAcc">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <h4 class="modal-title">Les évènements carousel</h4>
+                      </div>
+                      <div class="modal-body">
+                        <table class="table table-striped table-condensed">                
+                          <thead>
+                            <tr>
+                              <th>Evénement</th>
+                              <th>Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td><strong>show.bs.collapse</strong></td>
+                              <td>Se déclenche dès l'appel à la méthode <strong>show</strong></td>
+                            </tr>
+                            <tr>
+                              <td><strong>shown.bs.collapse</strong></td>
+                              <td>Se déclenche lorsque la zone devient visible</td>
+                            </tr>
+                            <tr>
+                              <td><strong>hide.bs.collapse</strong></td>
+                              <td>Se déclenche dès l'appel à la méthode <strong>hide</strong></td>
+                            </tr>
+                            <tr>
+                              <td><strong>hidden.bs.collapse</strong></td>
+                              <td>Se déclenche lorsque la zone est masquée</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-info" data-dismiss="modal">Fermer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+            
+        </div>
+
+        
+
+
+    </div>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+    /* -----envent target------ */         
+    $(function(){
+     $('#eventCta a')
+     .click(function (e) {
+       e.preventDefault();
+       $(this).tab('show');
+     })
+     .on('shown.bs.tab', function (e) {
+       $('#actif span').html($(e.target).text());
+       $('#precedent span').html($(e.relatedTarget).text());
+     });
+    });
+    /* -----Passez sur moi------ */     
+    $('h1').mouseover(function() {
+        $(this).dropdown('toggle');
+    });  
+    /* -----Page1 | Page2 | Page3------ */ 
+    $("body").on("hidden.bs.modal", ".modal", function () {
+          $(this).removeData("bs.modal");
+    });
+    $("#page1").click(function() { 
+        $("#infos").modal({ remote: "mod1.html" } ,"show");
+    });
+    $("#page2").click(function() { 
+        $("#infos").modal({ remote: "mod2.html" }, "show");
+    });
+    $("#page3").click(function() { 
+        $("#infos").modal({ remote: "mod3.html" }, "show");
+    });  
+   /* -----Activation avec javascript------ */     
+    $('#btnJS').click(function() {
+        $('#infosJS').modal('show');
+    });
+    $('#btnDrop').click(function() {
+        $('#infosDrop').modal('show');
+    });
+    $('#btnC').click(function() {
+        $('#infosC').modal('show');
+    });
+    $('#btnAcc').click(function() {
+        $('#infosAcc').modal('show');
+    });
+    $('#infosJS').modal({
+        keyboard: false,
+        show: false
+    });
+
+    /* -----Carroussel 3 vidéos------ */      
+    $(function (){ 
+        $('.carousel').carousel();
+        $('blockquote a').tooltip(); 
+        $('.btn-group .btn:nth-child(1)').click(function () {
+          $('iframe').attr('src', 'https://www.youtube.com/embed/-ZzB2bXe3Z0');
+        })
+        $('.btn-group .btn:nth-child(2)').click(function () {
+          $('iframe').attr('src', 'https://www.youtube.com/embed/aEH6noOdidU');
+        })
+        $('.btn-group .btn:nth-child(3)').click(function () {
+          $('iframe').attr('src', 'https://www.youtube.com/embed/_Qlld38EAjk');
+        })
+    });
+    /* -----Formulaire en modal------ */
+    $(function(){
+        $("form").submit(function(e) {
+          e.preventDefault();
+          var $form = $(this);
+          $.post($form.attr("action"), $form.serialize())
+          .done(function(data) {
+            $("#html").html(data);
+            $("#formulaire").modal("hide"); 
+          })
+          .fail(function() {
+            alert("ça marche pas...");
+          });
+        });
+      });
+    /* ------En retirant data-ride="carousel" ---- */
+    $(function(){
+        $('#carousel1.carousel').carousel({interval:500});
+        $('#cycle').click(function(){
+            $('#carousel1.carousel').carousel('cycle');
+        });
+        $('#pause1').click(function(){
+            $('#carousel1.carousel').carousel('pause');
+        });    
+    });
+    /* ----- Commandes carousel ------*/ 
+    function affichage() {
+        var total = $('#carousel2 .item').length;//devrait être 4
+        console.log ("total"+total);
+        var current = $('#carousel2 .item.active').index() + 1;// 
+        console.log ("current"+current);
+        $('#compteur').text(current + ' / '+ total);
+      }
+
+    $(function () {
+        affichage();
+        $('#carousel2.carousel').carousel({ interval: 2000 });
+        $('#first').click(function() { $('#carousel2.carousel').carousel(0); });
+        $('#previous').click(function() { $('#carousel2.carousel').carousel('prev'); }); 
+        $('#pause2').click(function() { $('#carousel2 .carousel').carousel('pause'); });
+        $('#play').click(function() { $('#carousel2.carousel').carousel('cycle'); });
+        $('#next').click(function() { $('#carousel2.carousel').carousel('next'); });
+        $('#last').click(function() { $('#carousel2.carousel').carousel(3); });
+        $('#carousel2.carousel').on('slid.bs.carousel', function () {
+          affichage();
+        });
+    });
+    /* ----- plugins initialisation tooltip & popover------*/ 
+        $(function(){
+            $('a#infoBul').tooltip();
+            $('a#infoBulB').tooltip({placement:'bottom'});
+            $('a#infoBulG').tooltip({placement:'left'});
+            $('a#infoBulData').tooltip();
+            $('a#clic').tooltip({trigger:'click'});
+            $('a#hov').tooltip({trigger:'click hover'});
+            $('a#foc').tooltip({trigger:'focus'});
+            $('a#man').tooltip({trigger:'manual'});
+            $('a#del').tooltip({delay:'400'});
+            $('a#delM').tooltip({delay:{show:200,hide:2000}});
+        });
+        $(function(){
+            $('#pop1').popover();
+            $('#pop2').popover({trigger:'focus'});
+            $('a#clic2').popover({trigger:'click'});
+            $('a#hov2').popover({trigger:'click hover'});
+            $('a#foc2').popover({trigger:'focus'});
+            $('a#man2').popover({trigger:'manual'});
+            $('a#pop3').popover({placement:'left'});
+            $('a#pop4').popover({delay:{show:200,hide:2000}});
+            $('a#pop5').popover({trigger:'hover',placement:'bottom'});
+            $('#img').popover({trigger:'manual'});
+            $('#pop6').click(function(){
+                $('#img').popover('toggle');
+            });
+            $('#pop7').popover({placement:'top'});
+        })
+         $(function(){
+              $('#pan01').collapse();
+              $('#show, #hide, #toggle').click(function(){
+                $('#pan01').collapse($(this).attr('id'));
+              });
+          });
+
+
+
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,121 @@
+img { width: 100%; }
+body { 
+    margin-top: 50px;
+}
+[class*="col"] { 
+   text-align: center;
+}
+img {
+   width: 100%;
+}
+[class*="col-lg"] { 
+   background-color:beige ;
+    border:1px solid #cecece;
+    border-radius: 3px;
+}
+[class*="col-md"] { 
+   background-color:#f0f9ff;
+    border:1px solid #bbe3fd;
+    border-radius: 3px;
+}
+[class*="col-sm"] { 
+   background-color:#deefa4;
+    border:1px solid #ffffff;
+    border-radius: 3px;
+}
+[class*="col-xs"] { 
+   background-color:#fce0cb;
+    border:1px solid #ffd0ad;
+    border-radius: 3px;
+}
+[class*="col-lg"]{
+    line-height: 20px;
+}
+
+[class*="col-md"]{
+    line-height: 20px;
+}
+[class*="col-sm"]{
+    line-height: 20px;
+}
+[class*="col-xs"]{
+    line-height: 20px;
+}
+
+#pg01 [class*="col-sm"], [class*="col-md"], [class*="col-xs"]{
+    text-align: left;
+    line-height: auto;
+    padding-left: 20px;
+}
+#pg01 blockquote{
+    font-size: 1em;
+}
+#tab [class*="col-md"]{
+    background-color: #ffffff;
+}
+#listes [class*="col-sm"]{
+    background-color:thistle;
+}
+#frm [class*="col-lg"], [class*="col-sm"], [class*="col-md"]{
+    text-align: left;
+    line-height: auto;
+}
+.ecrans{
+    display:block;
+    position:fixed;
+    bottom:0;
+    z-index:10000;
+}
+
+.w100{
+    width:100%;
+    background-color: peachpuff;
+    border:1px solid black;
+    border-radius: 3px;
+    line-height: 20px;
+    text-align: center;
+}
+nav{
+    background-color: peachpuff;
+    border:1px solid black;
+    border-radius: 3px;
+    line-height: 20px;
+    text-align: center;
+}
+.pull-right {
+ float: right!important;
+}
+.tRed{
+    color:red;
+    font-weight: bold;
+    font-size:9px;
+    line-height: 9px;
+    padding: 0;
+    margin: 0;
+    
+}
+.well{
+    padding: 20px;
+}
+img-rounded{
+    border-radius: 6px;
+}
+.btn-lg-rounded {
+ width: 50px;
+ height: 50px;
+ border-radius: 25px;
+}
+img-rounded{
+    border-radius: 6px;
+}
+.img-list{
+    width:45%
+}
+.jumbotron {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  color: inherit;
+  background-color: #eee;
+}
+h5{font-weight: bold;}
