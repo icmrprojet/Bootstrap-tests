@@ -119,3 +119,23 @@ img-rounded{
   background-color: #eee;
 }
 h5{font-weight: bold;}
+.o{
+    color:orange!important;
+}
+table{
+    font-size:12px;
+    line-height: auto;
+}
+#selecteurs td:last-child{
+    font-family:monospace;
+    color:blue;
+}
+#selecteurs tr:nth-child(even){
+    background-color: #e7faff;
+}
+.stripedTr{
+    background-color:#e7faff;
+}
+.no-stripedTr{
+    background-color:#ffffff!important;
+}

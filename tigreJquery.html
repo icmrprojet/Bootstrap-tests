@@ -30,7 +30,6 @@
         padding: 0;
         margin: 0;
         }
-
         .fade {
         opacity: 0;
         -webkit-transition: opacity .5000s linear!important;
@@ -38,33 +37,37 @@
         transition: opacity .5000s linear;
 }
     </style>
+    <link rel="stylesheet" href="allpages.css">
   </head>
 
-  <body>
+ <body data-spy="scroll" data-target=".navbar">
+     
     <div class="container">
       <nav class="navbar navbar-inverse" role="navigation">   
-        <div class="navbar-header">   
+        <div class="navbar-header"> 
+        <!-- bouton hamburger -->
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">JQUERY</a>
+          <h3 class="navbar-text o">JQUERY</h3>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="#">Accueil</a> </li>
             <li class="dropdown"> 
               <a data-toggle="dropdown" href="#">Evénements<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">avec propriétés</a></li>
-                <li><a href="#">avec javascript</a></li>
-                <li><a href="#">Caroussel</a></li>
+              <ul class="dropdown-menu" id="navB">
+                <li><a href="#top">avec propriétés</a></li>
+                <li><a href="#activ">avec javascript</a></li>
+                <li><a href="#pop">Popover</a></li>
+                <li><a href="#acc">Accordéon</a></li>
                 <li class="divider"></li>
                 <li><a href="#">Autres</a></li>
               </ul>
             </li> 
-            <li><a class="navbar-link" href="http://www.creatrafic.com/OC/bootstrap/index.html" target="_self">BOOTSTRAP</a></li>
+            <li><a class="navbar-link" href="index.html" target="_self">BOOTSTRAP</a></li>
             <li> <a href="#">Navigation</a></li>
           </ul>
         <div class="btn-group navbar-btn"> 
@@ -114,7 +117,10 @@
       </nav>
         
     <header class="row">
-        <h1 class="col-lg-3">JQuery</h1>
+        <div class="col-lg-3" id="top">
+            <h3>Menu Responsive</h3>
+            <P>Avec les classes <b>collapse</b> et <b>navbar-collapse</b> qui déclenchent par défaut dès inférieur à 768 pixels. Il est possible de changer ce point de transition en modifiant le fichier LESS de Bootstrap.</P>
+        </div>
         <div class="col-lg-3">
             <button class="btn btn-danger" id="btnDrop">Les évènements <b>pour <br/>le composant dropdown</b></button>
                <div class="modal" id="infosDrop">
@@ -229,7 +235,7 @@
       </header>
 
     <h3>Activation avec propriétés</h3>
-      <section class="row">
+      <section class="row" id="activ">
         <div class="col-lg-4">
             <button data-toggle="modal"  data-backdrop="true"  href="remote.html" data-target="#infos" class="btn btn-primary">
                 data-backdrop="true"
@@ -496,7 +502,7 @@
         <h3>Les deux plugins Info-bulles et Popover </h3>
         <p>Ils partagent une bibliothèque et ont un fonctionnement analogue.</p>
         <hr>
-        <div class="row">
+        <div class="row" id="pop">
             <section class="col-lg-6" id="tip">
                 <h4>Plugin Info-bulles</h4>
                 
@@ -524,7 +530,7 @@
         <h3>Effet accordéon </h3>
         <p>Le plugin accordéon (Collapse) est bien adapté au composant panel</p>
         <hr>
-        <div class="row">
+        <div class="row" id="acc">
             <section class="col-lg-4">
                 <div class="panel panel-default col-lg-120">
                     <h4>panel-collapse collapse</h4><i class="tRed">div panel-heading</i>
@@ -662,9 +668,9 @@
                     </div>  
                     <div class="panel panel-info" id="pan01">
                         <div class="panel-heading"> 
-                            <h3 class="panel-title"> Je suis le titre de l'accordéon</h3>
+                            <h3 class="panel-title"> panel-title</h3>
                         </div>
-                    <div class="panel-body"> Je suis le contenu de l'accordéon</div>
+                    <div class="panel-body"> panel-body</div>
                     </div>
                 </div>                
 
@@ -711,6 +717,12 @@
                   </div>
                 </div>
             </section>
+        </div>
+        
+        <h3>le Scrollspy</h3>
+        <hr>
+        <div class="row" >
+            
             
         </div>
 
@@ -864,6 +876,19 @@
                 $('#pan01').collapse($(this).attr('id'));
               });
           });
+        /* ----- plugins scroolspy------*/ 
+        $(function () {
+            $('#navB li>a').on('click', function(e) {
+                e.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                scrollTop: $(this.hash).offset().top
+                }, 1000, function(){
+                window.location.hash = hash;
+                });
+            });
+        });
+
 
 
 
